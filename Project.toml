@@ -1,0 +1,13 @@
+name = "Experiments"
+uuid = "7f5cce86-a9d4-477f-8e55-079765a24078"
+authors = ["Lars Ohnemus <ohnemus.lars@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.8"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
