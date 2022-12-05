@@ -6,6 +6,10 @@ module Experiments
 # imports
 using Graphs, Dates, Configurations
 
+# include other module files
+include("constants.jl")
+include("step.jl")
+
 """ push experiment to project """
 function Base.push!(project::Project, e::Experiment)
     # add experiment to the dedicated array
