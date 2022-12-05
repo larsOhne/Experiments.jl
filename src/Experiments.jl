@@ -8,41 +8,16 @@ using Graphs, Dates, Configurations
 
 # include other module files
 include("constants.jl")
+include("node.jl")
 include("step.jl")
 
-""" push experiment to project """
-function Base.push!(project::Project, e::Experiment)
-    # add experiment to the dedicated array
-    push!(project.experiments, e)
-end
-
-
-
-
-
-
-include("./_file_funcs.jl")
-
-""" loads the project Representation from disk """
-function load_project(proj_dir::AbstractString=".")::Project
-    # expand path
-    proj_path = realpath(proj_dir)
-
-    # create project object
-    project = Project(proj_path)
-
-    # traverse experiment folder and retrieve resources and experiments
-    resources, experiments = retrieve_files(project)
-
-    println(experiments)
-
-
-
-    return project
-end
-
-
-
-export load_project, Project
+# export types
+export  RawNode, DependencyGraph, DependableNode,
+        COMPUTE_NODE, EXTERNAL_RESOURCE, ARTIFACT, PARAMETER,
+# functions
+        is_file, 
+        add_node!,add_dependency!,
+# constants
+        DATE_FORMAT
 
 end
