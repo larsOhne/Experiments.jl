@@ -2,5 +2,7 @@ using Experiments
 using Test
 
 @testset "Experiments.jl" begin
-    # Write your tests here.
+    project = load_project("../examples/dummy_project")
+
+    println(project.path)
 end

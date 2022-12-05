@@ -1,0 +1,34 @@
+# standard configuration
+name: "Example Experiment"
+
+# Computation Step 1:
+steps:
+  # First computation step
+  - step_1:
+    name: "Step 1"
+    generator: "step_1"
+    params:
+      - {name: "param_1", default: 0, min: -1.0}
+      - {name: "param_2", default: 20, min: -1.0, max: 25.}
+    deps:
+      - {name: "dep_1", path: "resources/resource3.txt", copy: true}
+      - {name: "dep_2", path: "${RES} resources/resource5.txt", copy: false}
+  - results:
+    - {name: "result_1", min:0, max:20}
+  - artifacts:
+    - {name: "artifact_1", path: "artifact1.txt"}
+  # Second computation step
+  - step_2:
+    name: "Step 1"
+    generator: "step_2"
+    params:
+      - {name: "param_1", default: 0, min: -1.0}
+      - {name: "param_2", default: 20, min: -1.0, max: 25.}
+    deps:
+      - {name: "dep_1", path: "resources/resource3.txt", copy: true}
+      - {name: "dep_2", path: "${RES} resources/resource5.txt", copy: false}
+      - {step: "step_1"}
+  - results:
+    - {name: "result_2", min:0, max:20}
+  - artifacts:
+    - {name: "artifact_2", path: "artifact2.txt"}
