@@ -16,7 +16,7 @@ export  RawNode, DependencyGraph, DependableNode,
         COMPUTE_NODE, EXTERNAL_RESOURCE, ARTIFACT, PARAMETER,
 # functions
         is_file, 
-        add_node!,add_dependency!,
+        add_node!, add_dependency!,
 # constants
         DATE_FORMAT
 
